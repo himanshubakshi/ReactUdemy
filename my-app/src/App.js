@@ -5,8 +5,36 @@ import './App.css';
 import Person from './Person/Person';
 
 class App extends Component {
+
+  state = {
+      persons: [
+        {name: "Himanshu Bakshi", age: 29},
+        {name: "Batman", age: 33},
+        {name: "Stone Cold Steve Austin", age: 40}
+      ]
+  };
+
+ switchNameHandler = () => {
+    console.log(this.state);
+    console.log('Trying to modify state');
+
+    // DON'T do this. React wouldn't recognize this as a change of state
+    //this.state.persons[0].name = "I forgot my name!!!!";
+
+    // old state merged with the new one
+    this.setState(
+      {
+        persons: [
+          {name: "Name Lost!!!", age: 29},
+          {name: "Batman", age: 33},
+          {name: "Stone Cold Steve Austin", age: 27}
+        ]
+      }
+    );
+    console.log(this.state);
+  }
+
   render() {
-    
     return (
       // class can't be used for css because it's used in js, to define the class
       // we need to use react provided keywords
@@ -17,12 +45,20 @@ class App extends Component {
 
           <br/>
 
+          <button onClick={this.switchNameHandler}>Switch Name</button>
+
           <hr/>
-          <Person name={"Himanshu Bakshi"} age={29} />
+          <Person name={this.state.persons[0].name} age={this.state.persons[0].age}>
+              <ul>
+                  <li>I love reading</li>
+                  <li>I love writing</li>
+                  <li>I love mountain climbing</li>                  
+              </ul>
+          </Person>
           <hr/>
-          <Person name={"John Doe"} age={99} />     
+          <Person name={this.state.persons[1].name} age={this.state.persons[1].age} />
           <hr/>
-          <Person name={"The Rock"} age={35} />
+          <Person name={this.state.persons[2].name} age={this.state.persons[2].age} />
           <hr/>
           
       </div>
@@ -33,5 +69,7 @@ class App extends Component {
 
   }
 }
+
+// onClick has C in Caps. As opposed to the js onclick
 
 export default App;

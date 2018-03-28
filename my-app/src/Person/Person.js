@@ -9,6 +9,10 @@ const person = (props) => {
             <p>Name: {props.name}</p>
             <p>Age: {props.age}</p>
             <p>My son is {Math.floor(Math.random() * 20)} years old</p>
+
+            <p>{props.children}</p>
+
+
         </div>
     );
 };
