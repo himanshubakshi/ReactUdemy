@@ -1,12 +1,18 @@
 import React from 'react';
 
+
+// stateless component
+// use wherever possible, 
+// can't modify app state
+// only few selected components (a.k.a containers??**) should modify state
+
 // ES6 equivalent of a function, arrow function
 // this always points to the default context
 const person = (props) => {
     return(
         <div>
             <p>I'm a person!</p>
-            <p>Name: {props.name}</p>
+            <p onClick={props.externalOnClickHandler}>Name: {props.name}</p>
             <p>Age: {props.age}</p>
             <p>My son is {Math.floor(Math.random() * 20)} years old</p>
 

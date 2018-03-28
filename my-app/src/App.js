@@ -48,7 +48,7 @@ class App extends Component {
           <button onClick={this.switchNameHandler}>Switch Name</button>
 
           <hr/>
-          <Person name={this.state.persons[0].name} age={this.state.persons[0].age}>
+          <Person name={this.state.persons[0].name} age={this.state.persons[0].age} externalOnClickHandler={this.switchNameHandler}>
               <ul>
                   <li>I love reading</li>
                   <li>I love writing</li>
