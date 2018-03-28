@@ -5,11 +5,9 @@ const UserOutput = (props) => {
         <div>
             <p>Output Component</p>
 
-            <br/>
+            <p>Username: {props.username}</p>
 
-            <p></p>
-
-            <p></p>
+            <p>Para 2</p>
         </div> 
     );
 };
