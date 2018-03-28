@@ -70,6 +70,8 @@ class App extends Component {
   }
 }
 
+// changes to state and state bound props would be reflected by react
+
 // onClick has C in Caps. As opposed to the js onclick
 
 export default App;
