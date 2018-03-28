@@ -1,5 +1,6 @@
 import React from 'react';
 
+import './Person.css';
 
 // stateless component
 // use wherever possible, 
@@ -10,7 +11,7 @@ import React from 'react';
 // this always points to the default context
 const person = (props) => {
     return(
-        <div>
+        <div className="Person">
             <p>I'm a person!</p>
             <p onClick={props.externalOnClickHandler}>Name: {props.name}</p>
             <p>Age: {props.age}</p>

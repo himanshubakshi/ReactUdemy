@@ -47,6 +47,14 @@ class App extends Component {
   }
 
   render() {
+    const style = {
+        backgroundColor: 'white',
+        font: 'inherit',
+        border: '1px solid blue',
+        padding: '8px',
+        cursor: 'pointer'
+    }
+
     return (
       // class can't be used for css because it's used in js, to define the class
       // we need to use react provided keywords
@@ -57,7 +65,9 @@ class App extends Component {
 
           <br/>
 
-          <button onClick={() => this.switchNameHandler("Name from button handler")}>Switch Name</button>
+          <button 
+              style={style}
+              onClick={() => this.switchNameHandler("Name from button handler")}>Switch Name</button>
 
           <hr/>
           <Person name={this.state.persons[0].name} 
@@ -70,12 +80,10 @@ class App extends Component {
                   <li>I love mountain climbing</li>                  
               </ul>
           </Person>
-          <hr/>
           <Person name={this.state.persons[1].name} 
                   age={this.state.persons[1].age} 
                   externalOnClickHandler={this.switchNameHandler.bind(this, "New Name 2")}
                   nameChangeHandler = {this.nameChangeHandler}/>
-          <hr/>
           <Person name={this.state.persons[2].name} 
                   age={this.state.persons[2].age} 
                   externalOnClickHandler={this.switchNameHandler.bind(this, "New Name 3")}/>
