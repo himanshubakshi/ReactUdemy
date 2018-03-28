@@ -34,6 +34,18 @@ class App extends Component {
     console.log(this.state);
   }
 
+  nameChangeHandler = (event) => {
+      this.setState(
+        {
+          persons: [
+            {name: "Himanshu Bakshi", age: 29},
+            {name: event.target.value, age: 33},
+            {name: "Stone Cold Steve Austin", age: 27}
+          ]
+        }
+    );
+  }
+
   render() {
     return (
       // class can't be used for css because it's used in js, to define the class
@@ -48,7 +60,10 @@ class App extends Component {
           <button onClick={() => this.switchNameHandler("Name from button handler")}>Switch Name</button>
 
           <hr/>
-          <Person name={this.state.persons[0].name} age={this.state.persons[0].age} externalOnClickHandler={this.switchNameHandler.bind(this, "New Name 1")}>
+          <Person name={this.state.persons[0].name} 
+                  age={this.state.persons[0].age} 
+                  externalOnClickHandler={this.switchNameHandler.bind(this, "New Name 1")}
+                 >
               <ul>
                   <li>I love reading</li>
                   <li>I love writing</li>
@@ -56,9 +71,14 @@ class App extends Component {
               </ul>
           </Person>
           <hr/>
-          <Person name={this.state.persons[1].name} age={this.state.persons[1].age} externalOnClickHandler={this.switchNameHandler.bind(this, "New Name 2")}/>
+          <Person name={this.state.persons[1].name} 
+                  age={this.state.persons[1].age} 
+                  externalOnClickHandler={this.switchNameHandler.bind(this, "New Name 2")}
+                  nameChangeHandler = {this.nameChangeHandler}/>
           <hr/>
-          <Person name={this.state.persons[2].name} age={this.state.persons[2].age} externalOnClickHandler={this.switchNameHandler.bind(this, "New Name 3")}/>
+          <Person name={this.state.persons[2].name} 
+                  age={this.state.persons[2].age} 
+                  externalOnClickHandler={this.switchNameHandler.bind(this, "New Name 3")}/>
           <hr/>
           
       </div>
