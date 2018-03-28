@@ -14,7 +14,7 @@ class App extends Component {
       ]
   };
 
- switchNameHandler = () => {
+ switchNameHandler = (newName) => {
     console.log(this.state);
     console.log('Trying to modify state');
 
@@ -25,7 +25,7 @@ class App extends Component {
     this.setState(
       {
         persons: [
-          {name: "Name Lost!!!", age: 29},
+          {name: newName, age: 29},
           {name: "Batman", age: 33},
           {name: "Stone Cold Steve Austin", age: 27}
         ]
@@ -48,7 +48,7 @@ class App extends Component {
           <button onClick={this.switchNameHandler}>Switch Name</button>
 
           <hr/>
-          <Person name={this.state.persons[0].name} age={this.state.persons[0].age} externalOnClickHandler={this.switchNameHandler}>
+          <Person name={this.state.persons[0].name} age={this.state.persons[0].age} externalOnClickHandler={this.switchNameHandler.bind(this, "New Name 1")}>
               <ul>
                   <li>I love reading</li>
                   <li>I love writing</li>
@@ -56,9 +56,9 @@ class App extends Component {
               </ul>
           </Person>
           <hr/>
-          <Person name={this.state.persons[1].name} age={this.state.persons[1].age} />
+          <Person name={this.state.persons[1].name} age={this.state.persons[1].age} externalOnClickHandler={this.switchNameHandler.bind(this, "New Name 2")}/>
           <hr/>
-          <Person name={this.state.persons[2].name} age={this.state.persons[2].age} />
+          <Person name={this.state.persons[2].name} age={this.state.persons[2].age} externalOnClickHandler={this.switchNameHandler.bind(this, "New Name 3")}/>
           <hr/>
           
       </div>
