@@ -11,7 +11,8 @@ class App extends Component {
         {name: "Himanshu Bakshi", age: 29},
         {name: "Batman", age: 33},
         {name: "Stone Cold Steve Austin", age: 40}
-      ]
+      ],
+      showPersons: false
   };
 
  switchNameHandler = (newName) => {
@@ -44,6 +45,10 @@ class App extends Component {
           ]
         }
     );
+  } 
+
+  togglePersonsHandler = () => {
+
   }
 
   render() {
@@ -67,26 +72,31 @@ class App extends Component {
 
           <button 
               style={style}
-              onClick={() => this.switchNameHandler("Name from button handler")}>Switch Name</button>
+              onClick={this.togglePersonsHandler}>Switch Name</button>
 
           <hr/>
-          <Person name={this.state.persons[0].name} 
-                  age={this.state.persons[0].age} 
-                  externalOnClickHandler={this.switchNameHandler.bind(this, "New Name 1")}
-                 >
-              <ul>
-                  <li>I love reading</li>
-                  <li>I love writing</li>
-                  <li>I love mountain climbing</li>                  
-              </ul>
-          </Person>
-          <Person name={this.state.persons[1].name} 
-                  age={this.state.persons[1].age} 
-                  externalOnClickHandler={this.switchNameHandler.bind(this, "New Name 2")}
-                  nameChangeHandler = {this.nameChangeHandler}/>
-          <Person name={this.state.persons[2].name} 
-                  age={this.state.persons[2].age} 
-                  externalOnClickHandler={this.switchNameHandler.bind(this, "New Name 3")}/>
+
+          { this.state.showPersons ? 
+              <div>
+                  <Person name={this.state.persons[0].name} 
+                        age={this.state.persons[0].age} 
+                        externalOnClickHandler={this.switchNameHandler.bind(this, "New Name 1")}
+                       >
+                    <ul>
+                        <li>I love reading</li>
+                        <li>I love writing</li>
+                        <li>I love mountain climbing</li>                  
+                    </ul>
+                  </Person>
+                  <Person name={this.state.persons[1].name} 
+                          age={this.state.persons[1].age} 
+                          externalOnClickHandler={this.switchNameHandler.bind(this, "New Name 2")}
+                          nameChangeHandler = {this.nameChangeHandler}/>
+                  <Person name={this.state.persons[2].name} 
+                          age={this.state.persons[2].age} 
+                          externalOnClickHandler={this.switchNameHandler.bind(this, "New Name 3")}/>
+              </div> : null
+          }
           <hr/>
           
       </div>
