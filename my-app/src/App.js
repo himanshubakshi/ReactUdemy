@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Radium from 'radium';
+
 import './App.css';
 
 // any name can be given here, it is an alias. It's the default export from the file
@@ -90,7 +92,11 @@ class App extends Component {
         font: 'inherit',
         border: '1px solid blue',
         padding: '8px',
-        cursor: 'pointer'
+        cursor: 'pointer',
+        ':hover': {
+          backgroundColor: 'lightgreen',
+          color: 'black'
+        }
     }
 
     let persons = null;
@@ -112,6 +118,11 @@ class App extends Component {
           );
 
         style.backgroundColor = 'red';
+        style[':hover'] = {
+          backgroundColor: 'salmon',
+          color: 'black'
+
+        }
     }
 
     const classes = [];
@@ -160,4 +171,4 @@ class App extends Component {
 
 // onClick has C in Caps. As opposed to the js onclick
 
-export default App;
+export default Radium(App)  ;
