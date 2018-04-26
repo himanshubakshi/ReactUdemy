@@ -85,7 +85,8 @@ class App extends Component {
 
   render() {
     const style = {
-        backgroundColor: 'white',
+        backgroundColor: 'green',
+        color: 'white',
         font: 'inherit',
         border: '1px solid blue',
         padding: '8px',
@@ -95,22 +96,34 @@ class App extends Component {
     let persons = null;
 
     if(this.state.showPersons){
+
         persons = (
           <div>
 
-            {this.state.persons.map((person, index) => {
-                return <Person name={person.name}
-                                age={person.age} 
-                                click={() => this.deletePersonHandler(index)}
-                                key={person.id}
-                                changed={(event) => this.nameChangedHandler(event, person.id)}
-                                />
-            })}
-
-
-            
+              {this.state.persons.map((person, index) => {
+                  return <Person name={person.name}
+                                  age={person.age} 
+                                  click={() => this.deletePersonHandler(index)}
+                                  key={person.id}
+                                  changed={(event) => this.nameChangedHandler(event, person.id)}
+                                  />
+              })}
           </div> 
           );
+
+        style.backgroundColor = 'red';
+    }
+
+    const classes = [];
+
+    if(this.state.persons.length < 3)
+    {
+      classes.push('red');
+    }
+
+    if(this.state.persons.length <= 1)
+    {
+        classes.push('bold');
     }
 
     return (
@@ -119,7 +132,7 @@ class App extends Component {
       <div className="App">
           <h1>Hi, I am a react app!</h1>
 
-          <p> The app works</p>
+          <p className={classes.join(' ')}> The app works</p>
 
           <br/>
 
