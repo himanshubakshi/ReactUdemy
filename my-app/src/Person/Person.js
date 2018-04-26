@@ -12,14 +12,9 @@ import './Person.css';
 // this always points to the default context
 const person = (props) => {
     
-    const style = {
-        '@media (min-width: 500px)': {
-            width: '450px'
-        }
-    };
 
     return(
-        <div className="Person" style={style}>
+        <div className="Person" >
             <p>I'm a person!</p>
             <p onClick={props.click}>Name: {props.name}</p>
             <p>Age: {props.age}</p>
@@ -36,6 +31,6 @@ const person = (props) => {
 // {} inside html (read jsx defined html in the retuen statement) can execute one line statements, function calls. 
 // We can't create classes and do other complex stuff...}
 
-export default Radium(person);
+export default person;
 
 
