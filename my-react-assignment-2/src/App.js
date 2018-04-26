@@ -26,16 +26,16 @@ class App extends Component {
 
       const enteredText = this.state.text;
 
-      let newValue = enteredText.split('').map((value, index) => { 
+      let updatedText = enteredText.split('').map((value, index) => { 
         return  (index != indexOfChar) ? value : null
       }).join('');
 
 
-      console.log(newValue);
+      console.log(updatedText);
 
       this.setState({
-        text: newValue,
-        textLength: newValue.length
+        text: updatedText,
+        textLength: updatedText.length
       });
   };
 
