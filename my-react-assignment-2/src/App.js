@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import ValidationComponent from './Components/ValidationComponent'
-import CharComponent       from './Components/CharComponent'
+import ValidationComponent from './Components/ValidationComponent';
+import CharComponent       from './Components/CharComponent';
+
 import './App.css';
 
 
@@ -20,22 +21,20 @@ class App extends Component {
       });
   };
 
-  charClickHandler = (event, indexOfChar) => {
+  charClickHandler = (indexOfChar) => {
 
       console.log(indexOfChar);
 
-      const enteredText = this.state.text;
-
-      let updatedText = enteredText.split('').map((value, index) => { 
-        return  (index != indexOfChar) ? value : null
-      }).join('');
 
 
+      let splitArray = this.state.text.split('');      
+      splitArray.splice(indexOfChar, 1);
+      
+      let updatedText = splitArray.join('');
       console.log(updatedText);
 
       this.setState({
         text: updatedText,
-        textLength: updatedText.length
       });
   };
 
@@ -61,17 +60,14 @@ class App extends Component {
               <ValidationComponent textLength={this.state.textLength}/>
           </div>
 
-
           <div> 
 
               {this.state.text.split("").map((value, index) => {
                 return  <CharComponent charValue={value}
                                         indexOfChar={index} 
                                         key={index}
-                                        charClickHandler={(event, indexOfChar) => this.charClickHandler(event, indexOfChar)}/>
+                                        charClickHandler={(indexOfChar) => this.charClickHandler(indexOfChar)}/>
               })}
-
-
              
           </div>
       </div>
