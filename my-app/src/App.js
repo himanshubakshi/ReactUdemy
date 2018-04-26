@@ -49,6 +49,10 @@ class App extends Component {
 
   togglePersonsHandler = () => {
 
+      const doesShow = this.state.showPersons;
+      this.setState({
+        showPersons: !doesShow
+      });
   }
 
   render() {
@@ -58,6 +62,32 @@ class App extends Component {
         border: '1px solid blue',
         padding: '8px',
         cursor: 'pointer'
+    }
+
+    let persons = null;
+
+    if(this.state.showPersons){
+        persons = (
+          <div>
+              <Person name={this.state.persons[0].name} 
+                    age={this.state.persons[0].age} 
+                    externalOnClickHandler={this.switchNameHandler.bind(this, "New Name 1")}
+                   >
+                <ul>
+                    <li>I love reading</li>
+                    <li>I love writing</li>
+                    <li>I love mountain climbing</li>                  
+                </ul>
+              </Person>
+              <Person name={this.state.persons[1].name} 
+                      age={this.state.persons[1].age} 
+                      externalOnClickHandler={this.switchNameHandler.bind(this, "New Name 2")}
+                      nameChangeHandler = {this.nameChangeHandler}/>
+              <Person name={this.state.persons[2].name} 
+                      age={this.state.persons[2].age} 
+                      externalOnClickHandler={this.switchNameHandler.bind(this, "New Name 3")}/>
+          </div> 
+          );
     }
 
     return (
@@ -76,27 +106,9 @@ class App extends Component {
 
           <hr/>
 
-          { this.state.showPersons ? 
-              <div>
-                  <Person name={this.state.persons[0].name} 
-                        age={this.state.persons[0].age} 
-                        externalOnClickHandler={this.switchNameHandler.bind(this, "New Name 1")}
-                       >
-                    <ul>
-                        <li>I love reading</li>
-                        <li>I love writing</li>
-                        <li>I love mountain climbing</li>                  
-                    </ul>
-                  </Person>
-                  <Person name={this.state.persons[1].name} 
-                          age={this.state.persons[1].age} 
-                          externalOnClickHandler={this.switchNameHandler.bind(this, "New Name 2")}
-                          nameChangeHandler = {this.nameChangeHandler}/>
-                  <Person name={this.state.persons[2].name} 
-                          age={this.state.persons[2].age} 
-                          externalOnClickHandler={this.switchNameHandler.bind(this, "New Name 3")}/>
-              </div> : null
-          }
+          {persons}
+              
+          
           <hr/>
           
       </div>
