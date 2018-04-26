@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Radium from 'radium';
+import Radium, { StyleRoot } from 'radium';
 
 import './App.css';
 
@@ -140,25 +140,29 @@ class App extends Component {
     return (
       // class can't be used for css because it's used in js, to define the class
       // we need to use react provided keywords
-      <div className="App">
-          <h1>Hi, I am a react app!</h1>
+     
+      <StyleRoot>
+        <div className="App">
+            <h1>Hi, I am a react app!</h1>
 
-          <p className={classes.join(' ')}> The app works</p>
+            <p className={classes.join(' ')}> The app works</p>
 
-          <br/>
+            <br/>
 
-          <button 
-              style={style}
-              onClick={this.togglePersonsHandler}>Switch Name</button>
+            <button 
+                style={style}
+                onClick={this.togglePersonsHandler}>Switch Name</button>
 
-          <hr/>
+            <hr/>
 
-          {persons}
-              
-          
-          <hr/>
-          
-      </div>
+            {persons}
+                
+            
+            <hr/>
+            
+        </div>
+
+      </StyleRoot>
       );
 
 

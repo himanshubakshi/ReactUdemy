@@ -1,4 +1,5 @@
 import React from 'react';
+import Radium from 'radium';
 
 import './Person.css';
 
@@ -10,8 +11,15 @@ import './Person.css';
 // ES6 equivalent of a function, arrow function
 // this always points to the default context
 const person = (props) => {
+    
+    const style = {
+        '@media (min-width: 500px)': {
+            width: '450px'
+        }
+    };
+
     return(
-        <div className="Person">
+        <div className="Person" style={style}>
             <p>I'm a person!</p>
             <p onClick={props.click}>Name: {props.name}</p>
             <p>Age: {props.age}</p>
@@ -28,6 +36,6 @@ const person = (props) => {
 // {} inside html (read jsx defined html in the retuen statement) can execute one line statements, function calls. 
 // We can't create classes and do other complex stuff...}
 
-export default person;
+export default Radium(person);
 
 
