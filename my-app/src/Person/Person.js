@@ -1,7 +1,7 @@
 import React from 'react';
 import Radium from 'radium';
 
-import './Person.css';
+import classes from './Person.css';
 
 // stateless component
 // use wherever possible, 
@@ -14,7 +14,7 @@ const person = (props) => {
     
 
     return(
-        <div className="Person" >
+        <div className={classes.Person} >
             <p>I'm a person!</p>
             <p onClick={props.click}>Name: {props.name}</p>
             <p>Age: {props.age}</p>
