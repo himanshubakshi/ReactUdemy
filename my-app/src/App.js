@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import './App.css';
+import classes from './App.css';
 
 // any name can be given here, it is an alias. It's the default export from the file
 import Person from './Person/Person';
@@ -116,26 +116,26 @@ class App extends Component {
        
     }
 
-    const classes = [];
+    const assignedClasses = [];
 
     if(this.state.persons.length < 3)
     {
-      classes.push('red');
+      assignedClasses.push(classes.red);
     }
 
     if(this.state.persons.length <= 1)
     {
-        classes.push('bold');
+        assignedClasses.push(classes.bold);
     }
 
     return (
       // class can't be used for css because it's used in js, to define the class
       // we need to use react provided keywords
      
-      <div className="App">
+      <div className={classes.App}>
           <h1>Hi, I am a react app!</h1>
 
-          <p className={classes.join(' ')}> The app works</p>
+          <p className={assignedClasses.join(' ')}> The app works</p>
 
           <br/>
 
