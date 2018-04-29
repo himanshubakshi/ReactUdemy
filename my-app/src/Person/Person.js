@@ -12,9 +12,9 @@ import classes from './Person.css';
 // this always points to the default context
 const person = (props) => {
     
-    let x = Math.random();
+    let random = Math.random();
 
-    if(x < 0.7){
+    if(random < 0.7){
         throw "Oops! An error occured";
     }
 
