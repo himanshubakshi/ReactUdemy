@@ -3,13 +3,15 @@ import React from 'react';
 class ErrorHandler extends React.Component{
 
 	state = {
-		hasError: false
+		hasError: false,
+		errorMessage: ""
 	}
 
 	componentDidCatch(error, info){
 
 		this.setState({
-			hasError: true
+			hasError: true,
+			errorMessage: error
 		});
 
 		// log error to service
@@ -21,7 +23,7 @@ class ErrorHandler extends React.Component{
 
 		return(
 			<div>
-				<p>An error occured in the project</p>
+				<p>{this.state.errorMessage}</p>
 			</div>
 			);
 		}
