@@ -6,3 +6,7 @@
     padding: 16px;
     text-align: center;
 }
+
+@Media (min-width: 500px){
+	width: 60%;
+}
